@@ -31,5 +31,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 > git git remote add origin git@github.com:bailiubai/vue-my-blog.git    
 
 第四步：提交代码到github
-git push -u origin master  //提交到master分支（主分支）
+>git push -u origin master  //提交到master分支（主分支）
 
+第五步：拉取github代码
+>1. git fetch
+>2. git pull
