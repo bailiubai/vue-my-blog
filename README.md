@@ -39,18 +39,25 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 # //第三方拉去代码
-第一步：git remote add origin git@github.com:bailiubai/vue-my-blog.git 
+第一步：建立远程库链接
+>git remote add origin git@github.com:bailiubai/vue-my-blog.git 
+
 第二步：生产SSH密钥
 > ssh-keygen -t rsa -C "你github的邮箱"
 > 生产id_rsa.pub文件
+
 第三步：github中添加SSH keys
+
 第四步：拉取
 > 1. git fetch
   2. git pull orgin master
+
 第五步：提交新增的文件
 > git add "文件名"
+
 第六步：提交文件到本地库
 > git commit -m "提交"
+
 第七步：提交代码到远程
 > git push -u origin master 
 
