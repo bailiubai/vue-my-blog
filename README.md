@@ -28,4 +28,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 第三步：连理本地库与github库的连接
 > git git remote add origin git@github.com:bailiubai/vue-my-blog.git    
 第四步：提交代码到github
-> git push -u origin master  //提交到master分支（主分支）
+> git push -u origin master  //提交到master分支(主分支)
