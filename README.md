@@ -28,7 +28,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 > git commit -m "第一次提交" //-m 提交的备注
 
 第三步：连理本地库与github库的连接
-> git git remote add origin git@github.com:bailiubai/vue-my-blog.git    
+> git remote add origin git@github.com:bailiubai/vue-my-blog.git    
 
 第四步：提交代码到github
 >git push -u origin master  //提交到master分支（主分支）
@@ -36,3 +36,21 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 第五步：拉取github代码
 >1. git fetch
 >2. git pull
+
+
+# //第三方拉去代码
+第一步：git remote add origin git@github.com:bailiubai/vue-my-blog.git 
+第二步：生产SSH密钥
+> ssh-keygen -t rsa -C "你github的邮箱"
+> 生产id_rsa.pub文件
+第三步：github中添加SSH keys
+第四步：拉取
+> 1. git fetch
+  2. git pull orgin master
+第五步：提交新增的文件
+> git add "文件名"
+第六步：提交文件到本地库
+> git commit -m "提交"
+第七步：提交代码到远程
+> git push -u origin master 
+
