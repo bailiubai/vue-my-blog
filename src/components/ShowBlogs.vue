@@ -1,10 +1,11 @@
 <template>
-  <div id="show-blogs">
-    <h1>Show - Blogs</h1>
-    <div v-for="blog in blogs" class="single-blog">
-        <h2>{{blog.title}}</h2>
+  <div v-theme:column="'narrow'" id="show-blogs">
+    <h1>博客总览</h1>
+    <input type="text" v-model="search" placeholder="搜索">
+    <div v-for="blog in filteredBlogs" class="single-blog">
+        <h2 v-rainbow >{{blog.title | to-uppercase}}</h2>
         <article>
-            {{blog.body}}
+            {{blog.body | snippet}}
         </article>
     </div>
   </div>
@@ -15,15 +16,37 @@ export default {
   name: 'show-blogs',
   data(){
       return{
-        blogs:[]
+        blogs:[],
+        search:"JS 学习",
       }
   },
   created(){
       this.$http.get('http://localhost:8888/blogs').then(function(data){
           console.log(data)
-          this.blogs = data.body.slice(0,9);
-          console.log(this.blogs)
+          this.blogs = data.body.slice(0,12);
       })
+  },
+  computed:{
+    filteredBlogs:function(){
+      return this.blogs.filter((blog) =>{
+        return blog.title.match(this.search)
+      })
+    }
+  },
+  filters:{
+    // "to-uppercase":function(value){
+    //   return value.toUpperCase();
+    // }
+    // toUppercase(value){
+    //   return value.toUpperCase();
+    // }
+  },
+  directives:{
+    // 'rainbow':{
+    //   bind(el,binding,vnode){
+    //     el.style.color = "#"+Math.random().toString(16).slice(2,8);
+    //   }
+    // }
   }
 }
 </script>
