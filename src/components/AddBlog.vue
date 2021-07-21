@@ -67,10 +67,10 @@ export default {
   },
   methods:{
     post:function(){
-      this.$http.post("http://localhost:8888/blog",{
+      this.$http.post("http://localhost:8888/blog/add",{
         title:this.blog.title,
         body:this.blog.content,
-        userId:1
+        id:1
       }).then(function(data){
         console.log(data);
         this.submmited = true;

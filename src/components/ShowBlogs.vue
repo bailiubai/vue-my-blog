@@ -3,7 +3,7 @@
     <h1>博客总览</h1>
     <input type="text" v-model="search" placeholder="搜索">
     <div v-for="blog in filteredBlogs" class="single-blog">
-        <h2 v-rainbow >{{blog.title | to-uppercase}}</h2>
+        <router-link v-bind:to="'blog/' + blog.id"><h2 v-rainbow >{{blog.title | to-uppercase}}</h2></router-link>
         <article>
             {{blog.body | snippet}}
         </article>
@@ -17,13 +17,13 @@ export default {
   data(){
       return{
         blogs:[],
-        search:"JS 学习",
+        search:"JS",
       }
   },
   created(){
-      this.$http.get('http://localhost:8888/blogs').then(function(data){
+      this.$http.get('http://localhost:8888/blog/get/0').then(function(data){
           console.log(data)
-          this.blogs = data.body.slice(0,12);
+          this.blogs = data.body.slice(0,10);
       })
   },
   computed:{
@@ -62,5 +62,17 @@ export default {
     margin: 20px 0;
     box-sizing: border-box;
     background: #eee;
+    border: 1px dotted #aaa;
+}
+
+#single-blog a{
+    color: #444;
+    text-decoration: none;
+}
+
+input[type="text"]{
+  padding: 18px;
+  width: 100%;
+  box-sizing: border-box;
 }
 </style>

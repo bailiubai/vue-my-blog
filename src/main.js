@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
+import Routes from './routes'
 import App from './App'
-import Routes from './routers'
 
 Vue.config.productionTip = false
 
@@ -42,7 +42,8 @@ Vue.filter("snippet",function(value){
 
 //创建路由
 const router = new VueRouter({
-  routers:Routes
+  routes:Routes,
+  mode:"history"
 })
 
 /* eslint-disable no-new */
